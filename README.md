@@ -1,4 +1,4 @@
-Straminata project\
+Straminata project
 
 Проект Straminata
 Файл readme
