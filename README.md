@@ -1,3 +1,3 @@
-Straminata project
+Straminata project\n
 Проект Straminata
 Файл readme
