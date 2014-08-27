@@ -7,9 +7,8 @@ void update();
 void draw();
 void shutdown();
 
-
 bool quit;
-const int m_SleepTime = 1000;
+const int m_SleepTime = 100;
 
 int main()
 {
