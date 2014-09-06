@@ -16,7 +16,7 @@ int main(void)
 
 	while (!display.IsClosed())
 	{
-		display.Clear(0.0f, 0.15f, 0.3f, 1.0f);
+		display.Clear(0.5f, 0.15f, 0.3f, 1.0f);
 		display.Update();
 	}
 
