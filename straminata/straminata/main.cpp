@@ -1,45 +1,24 @@
+#include <Windows.h>
 #include <iostream>
-#include <Windows.h> // sleep()
-#include "input.cpp"
+#include "display.h";
 
-void startup();
-void update();
-void draw();
-void shutdown();
-
-bool quit;
-const int m_SleepTime = 1000;
-
-int main()
+int main(void)
 {
-	startup();
-	int count = 1;
-	while (quit != true)
+	//read settings from file
+	//...
+
+
+	const int g_width = 800;
+	const int g_height = 600;
+	const char* g_title = "Straminata";
+
+	Display display(800, 600, "Straminata"); //create a display
+
+	while (!display.IsClosed())
 	{
-		std::cout << count << " tick\n";
-		update();
-		draw();
-		count++;
-		Sleep(m_SleepTime);
+		display.Clear(0.0f, 0.15f, 0.3f, 1.0f);
+		display.Update();
 	}
-	shutdown();
+
 	return 0;
-}
-void startup()
-{
-	std::cout << "starting up the system!\n";
-	Sleep(m_SleepTime);
-}
-void update()
-{
-	std::cout << "updating frame\n";
-}
-void draw()
-{
-	std::cout << "drawing frame\n";
-}
-void shutdown()
-{
-	std::cout << "shutting down the system!\n";
-	Sleep(m_SleepTime);
 }
