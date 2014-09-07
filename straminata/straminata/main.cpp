@@ -12,14 +12,18 @@ int main(int argc, const char** argv)
 	const bool m_windowType = 0; // 0 - windowed, 1 - fullscreen
 	const bool m_debugMode = 1; // 0 - release, 1 - debug
 
-	Display display(m_width, m_height, m_title, m_windowType); //create a window
+	Display display(m_width, m_height, m_title, m_windowType); // create a window
 
 	if (!m_debugMode) ShowWindow(GetConsoleWindow(), SW_HIDE);
+	/* Error text here
+	MessageBox(0, L"Заголовок", L"Текст", MB_OK);
+	*/
 
 	while (!display.IsClosed())
 	{
 		display.Clear(1.0f, 1.0f, 1.0f, 1.0f);
 
+		/*
 		glBegin(GL_QUADS); // рисуем четырехугольник
 		glColor3f(1.0f, 0.0f, 0.0f); // установка цвета рисования
 			glVertex3f(0.0f, 0.0f, -4.0f);
@@ -30,6 +34,7 @@ int main(int argc, const char** argv)
 			glColor3f(0.0f, 0.0f, 1.0f);
 			glVertex3f(3.0f, 0.0f, -4.0f);
 		glEnd();
+		*/
 
 		display.Update();
 
@@ -41,8 +46,6 @@ int main(int argc, const char** argv)
 
 		// timer here
 		// sleep for delta
-
-
 	}
 
 	return 0;
