@@ -14,6 +14,8 @@ private:
 	Display(const Display& other) {}
 	Display& operator=(const Display& other) {}
 
+	GLFWvidmode m_windowInfo;
+	GLFWmonitor *m_monitor;
 	GLFWwindow* m_window;
 	bool m_isClosed;
 };

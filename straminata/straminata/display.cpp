@@ -4,13 +4,27 @@
 
 Display::Display(int width, int height, const char* title)
 {
-	//initialization GLFW + OpenGL
+	// Initialization GLFW + OpenGL
 	if (!glfwInit())
 		exit(EXIT_FAILURE);
-	//setting window parameters
-	//glfwWindowHint();
-	//creating window
-	m_window = glfwCreateWindow(width, height, title, NULL, NULL);
+	// Setting window parameters
+	
+	//glfwGetDesktopMode(&return_struct);
+	//int height = return_struct.Height;
+	
+	
+
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 2);
+	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+
+	glfwWindowHint(GLFW_RESIZABLE, GL_TRUE); //изменение размера окна
+
+	// Creating window
+	m_window = glfwCreateWindow(width, height, title, NULL, NULL); // Windowed
+	// m_window = glfwCreateWindow(width, height, title, glfwGetPrimaryMonitor(), nullptr); // Fullscreen
+
 	//preparing it
 	glfwMakeContextCurrent(m_window);
 	//window is not closed
