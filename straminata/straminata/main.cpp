@@ -6,9 +6,10 @@ int main(void)
 {
 	const int m_width = 800;
 	const int m_height = 600;
-	const char* g_title = "Straminata";
+	const char* m_title = "Straminata";
+	const bool m_windowType = 1;
 
-	Display display(m_width, m_height, g_title); //create a window
+	Display display(m_width, m_height, m_title, m_windowType); //create a window
 
 	while (!display.IsClosed())
 	{

@@ -3,7 +3,7 @@
 class Display
 {
 public:
-	Display(int width, int height, const char* title);
+	Display(int width, int height, const char* title, const bool windowType);
 
 	void Clear(float r, float g, float b, float a);
 	void Update();
@@ -14,8 +14,7 @@ private:
 	Display(const Display& other) {}
 	Display& operator=(const Display& other) {}
 
-	GLFWvidmode m_windowInfo;
-	GLFWmonitor *m_monitor;
+	const GLFWvidmode* m_monitorInfo;
 	GLFWwindow* m_window;
 	bool m_isClosed;
 };
