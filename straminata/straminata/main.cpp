@@ -1,7 +1,9 @@
 #include <Windows.h>
 #include <iostream>
+#include <GL\glew.h>
 #include <GLFW\glfw3.h>
-#include "display.h";
+#include "display.h"
+#include "shader.h"
 
 int main(int argc, const char** argv)
 {
@@ -19,22 +21,13 @@ int main(int argc, const char** argv)
 	MessageBox(0, L"Заголовок", L"Текст", MB_OK);
 	*/
 
+	Shader shader("./res/basicShader");
+
 	while (!display.IsClosed())
 	{
 		display.Clear(1.0f, 1.0f, 1.0f, 1.0f);
 
-		/*
-		glBegin(GL_QUADS); // рисуем четырехугольник
-		glColor3f(1.0f, 0.0f, 0.0f); // установка цвета рисования
-			glVertex3f(0.0f, 0.0f, -4.0f);
-			glColor3f(0.0f, 1.0f, 0.0f);
-			glVertex3f(-1.0f, -2.0f, -4.0f);
-			glColor3f(0.0f, 0.0f, 1.0f);
-			glVertex3f(3.0f, -2.0f, -4.0f);
-			glColor3f(0.0f, 0.0f, 1.0f);
-			glVertex3f(3.0f, 0.0f, -4.0f);
-		glEnd();
-		*/
+		shader.Bind();
 
 		display.Update();
 
@@ -50,3 +43,16 @@ int main(int argc, const char** argv)
 
 	return 0;
 }
+
+/*
+glBegin(GL_QUADS); // рисуем четырехугольник
+glColor3f(1.0f, 0.0f, 0.0f); // установка цвета рисования
+glVertex3f(0.0f, 0.0f, -4.0f);
+glColor3f(0.0f, 1.0f, 0.0f);
+glVertex3f(-1.0f, -2.0f, -4.0f);
+glColor3f(0.0f, 0.0f, 1.0f);
+glVertex3f(3.0f, -2.0f, -4.0f);
+glColor3f(0.0f, 0.0f, 1.0f);
+glVertex3f(3.0f, 0.0f, -4.0f);
+glEnd();
+*/
