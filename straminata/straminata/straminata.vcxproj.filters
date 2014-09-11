@@ -1,9 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="display.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="shader.cpp" />
+    <ClCompile Include="display.cpp">
+      <Filter>Исходники</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Исходники</Filter>
+    </ClCompile>
+    <ClCompile Include="shader.cpp">
+      <Filter>Исходники</Filter>
+    </ClCompile>
+    <ClCompile Include="mesh.cpp">
+      <Filter>Исходники</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="display.h">
@@ -12,10 +21,16 @@
     <ClInclude Include="shader.h">
       <Filter>Загаловки</Filter>
     </ClInclude>
+    <ClInclude Include="mesh.h">
+      <Filter>Загаловки</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Загаловки">
       <UniqueIdentifier>{90979f4f-517a-44a7-9890-f975c915f502}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходники">
+      <UniqueIdentifier>{b1cf09e7-e5cc-4b10-b4cf-37e27cee87dc}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

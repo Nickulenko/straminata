@@ -10,7 +10,7 @@ Display::Display(int width, int height, const char* title, const bool windowType
 	m_monitorInfo = glfwGetVideoMode(glfwGetPrimaryMonitor());
 	// Setting OpenGL parameters
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3); // максимальная рабочая версия opengl 3
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 2); // минимальная рабочая версия opengl 2
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3); // минимальная рабочая версия opengl 3
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE); // использовать главный профиль opengl
 	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 	glfwWindowHint(GLFW_RESIZABLE, GL_TRUE); // возможность менять размера окна
@@ -26,11 +26,14 @@ Display::Display(int width, int height, const char* title, const bool windowType
 	// Preparing window
 	glfwMakeContextCurrent(m_window);
 
+	glewExperimental = GL_TRUE;
+
 	GLenum status = glewInit();
 
 	if (status != GLEW_OK)
 	{
 		std::cerr << "GLEW failed to initialize" << std::endl;
+		exit(1);
 	}
 
 	// Window is not closed
