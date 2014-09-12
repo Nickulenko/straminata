@@ -2,35 +2,45 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="display.cpp">
-      <Filter>Исходники</Filter>
-    </ClCompile>
-    <ClCompile Include="main.cpp">
-      <Filter>Исходники</Filter>
-    </ClCompile>
-    <ClCompile Include="shader.cpp">
-      <Filter>Исходники</Filter>
+      <Filter>display</Filter>
     </ClCompile>
     <ClCompile Include="mesh.cpp">
-      <Filter>Исходники</Filter>
+      <Filter>display</Filter>
+    </ClCompile>
+    <ClCompile Include="shader.cpp">
+      <Filter>display</Filter>
+    </ClCompile>
+    <ClCompile Include="stb_image.c">
+      <Filter>display\textureLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="texture.cpp">
+      <Filter>display</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="display.h">
-      <Filter>Загаловки</Filter>
-    </ClInclude>
-    <ClInclude Include="shader.h">
-      <Filter>Загаловки</Filter>
+      <Filter>display</Filter>
     </ClInclude>
     <ClInclude Include="mesh.h">
-      <Filter>Загаловки</Filter>
+      <Filter>display</Filter>
+    </ClInclude>
+    <ClInclude Include="shader.h">
+      <Filter>display</Filter>
+    </ClInclude>
+    <ClInclude Include="stb_image.h">
+      <Filter>display\textureLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="texture.h">
+      <Filter>display</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="Загаловки">
-      <UniqueIdentifier>{90979f4f-517a-44a7-9890-f975c915f502}</UniqueIdentifier>
+    <Filter Include="display">
+      <UniqueIdentifier>{5758d434-8b98-431d-9bc6-bedbe16e5fd6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Исходники">
-      <UniqueIdentifier>{b1cf09e7-e5cc-4b10-b4cf-37e27cee87dc}</UniqueIdentifier>
+    <Filter Include="display\textureLoader">
+      <UniqueIdentifier>{e5701ff0-040c-4ea3-89c4-739196e6bce1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
