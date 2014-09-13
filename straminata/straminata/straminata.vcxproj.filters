@@ -2,45 +2,66 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="display.cpp">
-      <Filter>display</Filter>
+      <Filter>engine\display</Filter>
     </ClCompile>
     <ClCompile Include="mesh.cpp">
-      <Filter>display</Filter>
+      <Filter>engine\display</Filter>
     </ClCompile>
     <ClCompile Include="shader.cpp">
-      <Filter>display</Filter>
+      <Filter>engine\display</Filter>
     </ClCompile>
     <ClCompile Include="stb_image.c">
-      <Filter>display\textureLoader</Filter>
+      <Filter>engine\display\textureLoader</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="texture.cpp">
-      <Filter>display</Filter>
+      <Filter>engine\display</Filter>
+    </ClCompile>
+    <ClCompile Include="timer.cpp">
+      <Filter>engine\subsystems\timer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="display.h">
-      <Filter>display</Filter>
+      <Filter>engine\display</Filter>
     </ClInclude>
     <ClInclude Include="mesh.h">
-      <Filter>display</Filter>
+      <Filter>engine\display</Filter>
     </ClInclude>
     <ClInclude Include="shader.h">
-      <Filter>display</Filter>
+      <Filter>engine\display</Filter>
     </ClInclude>
     <ClInclude Include="stb_image.h">
-      <Filter>display\textureLoader</Filter>
+      <Filter>engine\display\textureLoader</Filter>
     </ClInclude>
     <ClInclude Include="texture.h">
-      <Filter>display</Filter>
+      <Filter>engine\display</Filter>
+    </ClInclude>
+    <ClInclude Include="timer.h">
+      <Filter>engine\subsystems\timer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="display">
+    <Filter Include="engine">
+      <UniqueIdentifier>{30b6d764-52a1-46a6-b18c-0fb9c4c94af4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\display">
       <UniqueIdentifier>{5758d434-8b98-431d-9bc6-bedbe16e5fd6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="display\textureLoader">
+    <Filter Include="engine\display\textureLoader">
       <UniqueIdentifier>{e5701ff0-040c-4ea3-89c4-739196e6bce1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\subsystems">
+      <UniqueIdentifier>{d4493442-e637-4a82-935b-768d6bfecf39}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\subsystems\parsers">
+      <UniqueIdentifier>{cea29dc4-f9a6-477a-a0ff-d1bd0dd69fcd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\subsystems\timer">
+      <UniqueIdentifier>{1971b705-5db2-4f16-a8d9-151003e9eea4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\input">
+      <UniqueIdentifier>{68572a11-a28e-4f99-ad8e-d7d16bbb85c6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

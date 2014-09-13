@@ -1,11 +1,14 @@
-#include <Windows.h>
 #include <iostream>
+#include <Windows.h>
 #include <GL\glew.h>
 #include <GLFW\glfw3.h>
 #include "display.h"
 #include "shader.h"
 #include "mesh.h"
 #include "texture.h"
+#include "timer.h"
+
+#define FRAMERATE 30
 
 int main(int argc, const char** argv)
 {
@@ -15,6 +18,9 @@ int main(int argc, const char** argv)
 	const char* m_title = "Straminata"; // game title
 	const bool m_windowType = 0; // 0 - windowed, 1 - fullscreen
 	const bool m_debugMode = 1; // 0 - release, 1 - debug
+
+	// Initialization
+	Timer loopTimer;
 
 	Display display(m_width, m_height, m_title, m_windowType); // create a window
 
@@ -31,8 +37,12 @@ int main(int argc, const char** argv)
 	Shader shader("./res/basicShader");
 	Texture texture("./res/bricks.jpg");
 
+	// Maint Loop
 	while (!display.IsClosed())
 	{
+		// update parameters
+		loopTimer.Start(); // start timer
+
 		display.Clear(1.0f, 1.0f, 1.0f, 1.0f);
 
 		shader.Bind();
@@ -40,15 +50,9 @@ int main(int argc, const char** argv)
 		mesh.Draw();
 
 		display.Update();
-
-		// выход из цикла при нажатии esc или когда закрыли окно
-		/*
-		if (glfwGetKey(m_window, GLFW_KEY_ESC) && glfwGetWindowParam(GLFW_OPENED)) 
-			display.Close();
-		*/
-
-		// timer here
-		// sleep for delta
+				
+		loopTimer.Stop(); // stop timer
+		Sleep((1 / FRAMERATE) - (loopTimer.GetDelta()));// // count delta sleep for delta
 	}
 
 	return 0;
