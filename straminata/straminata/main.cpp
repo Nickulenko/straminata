@@ -8,8 +8,6 @@
 #include "texture.h"
 #include "timer.h"
 
-#define FRAMERATE 30
-
 int main(int argc, const char** argv)
 {
 	// Main ingame settings
@@ -36,37 +34,39 @@ int main(int argc, const char** argv)
 	Mesh mesh(vertices, sizeof(vertices) / sizeof(vertices[0]));
 	Shader shader("./res/basicShader");
 	Texture texture("./res/bricks.jpg");
+	Transform transform;
+
+	float counter = 0.0f;
 
 	// Maint Loop
 	while (!display.IsClosed())
 	{
 		// update parameters
-		loopTimer.Start(); // start timer
+//		loopTimer.Start(); // Start timer
 
 		display.Clear(1.0f, 1.0f, 1.0f, 1.0f);
 
+		float sinCounter = sinf(counter);
+		float cosCounter = cosf(counter);
+
+		transform.GetPos().x = sinf(counter);
+		transform.GetRot().z = counter * 50;
+		transform.SetScale(glm::vec3(cosCounter, sinCounter, cosCounter));
+
 		shader.Bind();
 		texture.Bind();
+		shader.Update(transform);
 		mesh.Draw();
-
+		
 		display.Update();
+		counter += 0.001f;
 				
-		loopTimer.Stop(); // stop timer
-		Sleep((1 / FRAMERATE) - (loopTimer.GetDelta()));// // count delta sleep for delta
+//		loopTimer.Stop(); // stop timer
+		//double sleepTime = double(0.33) - loopTimer.GetDelta();
+		//std::cout << double(0.33) - loopTimer.GetDelta() << std::endl;
+	//	Sleep(sleepTime); // Count delta and sleep
 	}
+	// Deinitialize
 
 	return 0;
 }
-
-/*
-glBegin(GL_QUADS); // рисуем четырехугольник
-glColor3f(1.0f, 0.0f, 0.0f); // установка цвета рисования
-glVertex3f(0.0f, 0.0f, -4.0f);
-glColor3f(0.0f, 1.0f, 0.0f);
-glVertex3f(-1.0f, -2.0f, -4.0f);
-glColor3f(0.0f, 0.0f, 1.0f);
-glVertex3f(3.0f, -2.0f, -4.0f);
-glColor3f(0.0f, 0.0f, 1.0f);
-glVertex3f(3.0f, 0.0f, -4.0f);
-glEnd();
-*/

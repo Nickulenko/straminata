@@ -17,9 +17,6 @@
     <ClCompile Include="texture.cpp">
       <Filter>engine\display</Filter>
     </ClCompile>
-    <ClCompile Include="timer.cpp">
-      <Filter>engine\subsystems\timer</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="display.h">
@@ -39,6 +36,9 @@
     </ClInclude>
     <ClInclude Include="timer.h">
       <Filter>engine\subsystems\timer</Filter>
+    </ClInclude>
+    <ClInclude Include="transform.h">
+      <Filter>engine\display</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
