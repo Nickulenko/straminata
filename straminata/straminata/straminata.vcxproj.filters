@@ -40,6 +40,12 @@
     <ClInclude Include="transform.h">
       <Filter>engine\display</Filter>
     </ClInclude>
+    <ClInclude Include="memory.h">
+      <Filter>engine\subsystems\memory</Filter>
+    </ClInclude>
+    <ClInclude Include="camera.h">
+      <Filter>engine\display</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="engine">
@@ -54,14 +60,20 @@
     <Filter Include="engine\subsystems">
       <UniqueIdentifier>{d4493442-e637-4a82-935b-768d6bfecf39}</UniqueIdentifier>
     </Filter>
-    <Filter Include="engine\subsystems\parsers">
-      <UniqueIdentifier>{cea29dc4-f9a6-477a-a0ff-d1bd0dd69fcd}</UniqueIdentifier>
-    </Filter>
     <Filter Include="engine\subsystems\timer">
       <UniqueIdentifier>{1971b705-5db2-4f16-a8d9-151003e9eea4}</UniqueIdentifier>
     </Filter>
     <Filter Include="engine\input">
       <UniqueIdentifier>{68572a11-a28e-4f99-ad8e-d7d16bbb85c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\subsystems\memory">
+      <UniqueIdentifier>{4ab442b9-c634-42a3-85f2-b04178a29434}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\subsystems\files">
+      <UniqueIdentifier>{e2c3805d-f191-4256-8c89-5511b9008573}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\subsystems\files\parsers">
+      <UniqueIdentifier>{cea29dc4-f9a6-477a-a0ff-d1bd0dd69fcd}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

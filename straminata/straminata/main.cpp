@@ -7,22 +7,26 @@
 #include "mesh.h"
 #include "texture.h"
 #include "timer.h"
+#include "camera.h"
+
+#define WIDTH 800
+#define HEIGHT 600
 
 int main(int argc, const char** argv)
 {
 	// Main ingame settings
-	const int m_width = 800;
-	const int m_height = 600;
-	const char* m_title = "Straminata"; // game title
-	const bool m_windowType = 0; // 0 - windowed, 1 - fullscreen
-	const bool m_debugMode = 1; // 0 - release, 1 - debug
+	const int width = 800;
+	const int height = 600;
+	const std::string title = "Straminata"; // game title
+	const bool windowType = 0; // 0 - windowed, 1 - fullscreen
+	const bool debugMode = 1; // 0 - release, 1 - debug
 
 	// Initialization
 	Timer loopTimer;
 
-	Display display(m_width, m_height, m_title, m_windowType); // create a window
+	Display display(width, height, title.c_str(), windowType); // create a window
 
-	if (!m_debugMode) ShowWindow(GetConsoleWindow(), SW_HIDE);
+	if (!debugMode) ShowWindow(GetConsoleWindow(), SW_HIDE);
 	/* Error text here
 	MessageBox(0, L"Заголовок", L"Текст", MB_OK);
 	*/
@@ -34,6 +38,7 @@ int main(int argc, const char** argv)
 	Mesh mesh(vertices, sizeof(vertices) / sizeof(vertices[0]));
 	Shader shader("./res/basicShader");
 	Texture texture("./res/bricks.jpg");
+	Camera camera(glm::vec3(0, 0, -2), 70.0f, (float)width/(float)height, 0.01f, 1000.0f);
 	Transform transform;
 
 	float counter = 0.0f;
@@ -50,21 +55,25 @@ int main(int argc, const char** argv)
 		float cosCounter = cosf(counter);
 
 		transform.GetPos().x = sinf(counter);
+		transform.GetPos().z = cosf(counter);
+		transform.GetRot().x = counter * 50;
+		transform.GetRot().y = counter * 50;
 		transform.GetRot().z = counter * 50;
-		transform.SetScale(glm::vec3(cosCounter, sinCounter, cosCounter));
+		//transform.SetScale(glm::vec3(cosCounter, sinCounter, cosCounter));
 
 		shader.Bind();
 		texture.Bind();
-		shader.Update(transform);
+		shader.Update(transform, camera);
 		mesh.Draw();
 		
 		display.Update();
 		counter += 0.001f;
 				
 //		loopTimer.Stop(); // stop timer
-		//double sleepTime = double(0.33) - loopTimer.GetDelta();
-		//std::cout << double(0.33) - loopTimer.GetDelta() << std::endl;
-	//	Sleep(sleepTime); // Count delta and sleep
+//		double sleepTime = double(0.33) - loopTimer.GetDelta();
+//		std::cout << double(0.33) - loopTimer.GetDelta() << std::endl;
+//		Sleep(sleepTime); // Count delta and sleep
+
 	}
 	// Deinitialize
 
