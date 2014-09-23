@@ -9,8 +9,8 @@
 #include "timer.h"
 #include "camera.h"
 
-#define WIDTH 800
-#define HEIGHT 600
+//#define WIDTH 800
+//#define HEIGHT 600
 
 int main(int argc, const char** argv)
 {
@@ -21,6 +21,10 @@ int main(int argc, const char** argv)
 	const bool windowType = 0; // 0 - windowed, 1 - fullscreen
 	const bool debugMode = 1; // 0 - release, 1 - debug
 
+	Vertex vertices[] = {	Vertex(glm::vec3(-0.5, -0.5, 0.0), glm::vec2(0.0, 0.0)),
+							Vertex(glm::vec3(0.0, 0.5, 0.0), glm::vec2(0.5, 1.0)),
+							Vertex(glm::vec3(0.5, -0.5, 0.0), glm::vec2(1.0, 0.0)) };
+
 	// Initialization
 	Timer loopTimer;
 
@@ -30,10 +34,6 @@ int main(int argc, const char** argv)
 	/* Error text here
 	MessageBox(0, L"Заголовок", L"Текст", MB_OK);
 	*/
-
-	Vertex vertices[] = {	Vertex(glm::vec3(-0.5, -0.5, 0.0), glm::vec2(0.0, 0.0)),
-							Vertex(glm::vec3(0.0, 0.5, 0.0), glm::vec2(0.5, 1.0)),
-							Vertex(glm::vec3(0.5, -0.5, 0.0), glm::vec2(1.0, 0.0)) };
 
 	Mesh mesh(vertices, sizeof(vertices) / sizeof(vertices[0]));
 	Shader shader("./res/basicShader");
@@ -76,6 +76,9 @@ int main(int argc, const char** argv)
 
 	}
 	// Deinitialize
+	texture.~Texture();
+	shader.~Shader();
+	mesh.~Mesh();
 
 	return 0;
 }
