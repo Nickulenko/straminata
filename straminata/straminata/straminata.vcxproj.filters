@@ -23,6 +23,9 @@
     <ClCompile Include="wait.cpp">
       <Filter>engine\subsystems\timer</Filter>
     </ClCompile>
+    <ClCompile Include="tempCollision.cpp">
+      <Filter>engine\collision</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="display.h">
@@ -83,6 +86,9 @@
     </Filter>
     <Filter Include="engine\subsystems\files\parsers">
       <UniqueIdentifier>{cea29dc4-f9a6-477a-a0ff-d1bd0dd69fcd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\collision">
+      <UniqueIdentifier>{b2444f8e-e1ad-42f4-9bb4-de74aaef8115}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
