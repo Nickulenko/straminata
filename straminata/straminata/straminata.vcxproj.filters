@@ -17,6 +17,12 @@
     <ClCompile Include="texture.cpp">
       <Filter>engine\display</Filter>
     </ClCompile>
+    <ClCompile Include="main_display.h">
+      <Filter>engine\display</Filter>
+    </ClCompile>
+    <ClCompile Include="wait.cpp">
+      <Filter>engine\subsystems\timer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="display.h">
@@ -34,9 +40,6 @@
     <ClInclude Include="texture.h">
       <Filter>engine\display</Filter>
     </ClInclude>
-    <ClInclude Include="timer.h">
-      <Filter>engine\subsystems\timer</Filter>
-    </ClInclude>
     <ClInclude Include="transform.h">
       <Filter>engine\display</Filter>
     </ClInclude>
@@ -45,6 +48,15 @@
     </ClInclude>
     <ClInclude Include="camera.h">
       <Filter>engine\display</Filter>
+    </ClInclude>
+    <ClInclude Include="highResTimer.h">
+      <Filter>engine\subsystems\timer</Filter>
+    </ClInclude>
+    <ClInclude Include="lowResTimer.h">
+      <Filter>engine\subsystems\timer</Filter>
+    </ClInclude>
+    <ClInclude Include="timer.h">
+      <Filter>engine\subsystems\timer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -62,9 +74,6 @@
     </Filter>
     <Filter Include="engine\subsystems\timer">
       <UniqueIdentifier>{1971b705-5db2-4f16-a8d9-151003e9eea4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="engine\input">
-      <UniqueIdentifier>{68572a11-a28e-4f99-ad8e-d7d16bbb85c6}</UniqueIdentifier>
     </Filter>
     <Filter Include="engine\subsystems\memory">
       <UniqueIdentifier>{4ab442b9-c634-42a3-85f2-b04178a29434}</UniqueIdentifier>

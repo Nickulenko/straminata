@@ -1,53 +1,54 @@
+/*
+	Straminata project
+	JustBear
+	In development by Matthew Poletin
+	All rights reserved
+*/
+
 #include <iostream>
 #include <Windows.h>
-#include <GL\glew.h>
-#include <GLFW\glfw3.h>
-#include "display.h"
-#include "shader.h"
-#include "mesh.h"
-#include "texture.h"
+#include "main_display.h"
 #include "timer.h"
-#include "camera.h"
 
-//#define WIDTH 800
-//#define HEIGHT 600
+// Main ingame settings
+const int width = 800;
+const int height = 600;
+const std::string title = "Straminata"; // game title
+const bool windowType = 0; // 0 - windowed, 1 - fullscreen
+const bool debugMode = 1; // 0 - release, 1 - debug
 
 int main(int argc, const char** argv)
 {
-	// Main ingame settings
-	const int width = 800;
-	const int height = 600;
-	const std::string title = "Straminata"; // game title
-	const bool windowType = 0; // 0 - windowed, 1 - fullscreen
-	const bool debugMode = 1; // 0 - release, 1 - debug
-
-	Vertex vertices[] = {	Vertex(glm::vec3(-0.5, -0.5, 0.0), glm::vec2(0.0, 0.0)),
-							Vertex(glm::vec3(0.0, 0.5, 0.0), glm::vec2(0.5, 1.0)),
-							Vertex(glm::vec3(0.5, -0.5, 0.0), glm::vec2(1.0, 0.0)) };
+	Vertex vertices[] = {	Vertex(glm::vec3(-0.5, -0.5, 0.0),	glm::vec2(0.0, 0.0)),
+							Vertex(glm::vec3(0.0, 0.5, 0.0),	glm::vec2(0.5, 1.0)),
+							Vertex(glm::vec3(0.5, -0.5, 0.0),	glm::vec2(1.0, 0.0)) };
 
 	// Initialization
 	Timer loopTimer;
+	Timer frameTimer;
 
-	Display display(width, height, title.c_str(), windowType); // create a window
+	Display display(width, height, title, windowType); // create a window
 
 	if (!debugMode) ShowWindow(GetConsoleWindow(), SW_HIDE);
 	/* Error text here
 	MessageBox(0, L"Заголовок", L"Текст", MB_OK);
 	*/
 
+	// initialize actor
 	Mesh mesh(vertices, sizeof(vertices) / sizeof(vertices[0]));
 	Shader shader("./res/basicShader");
 	Texture texture("./res/bricks.jpg");
 	Camera camera(glm::vec3(0, 0, -2), 70.0f, (float)width/(float)height, 0.01f, 1000.0f);
 	Transform transform;
-
+	//-----
+	
 	float counter = 0.0f;
 
 	// Maint Loop
 	while (!display.IsClosed())
 	{
-		// update parameters
-//		loopTimer.Start(); // Start timer
+		frameTimer.Start();
+		loopTimer.Start();
 
 		display.Clear(1.0f, 1.0f, 1.0f, 1.0f);
 
@@ -68,12 +69,14 @@ int main(int argc, const char** argv)
 		
 		display.Update();
 		counter += 0.001f;
-				
-//		loopTimer.Stop(); // stop timer
-//		double sleepTime = double(0.33) - loopTimer.GetDelta();
-//		std::cout << double(0.33) - loopTimer.GetDelta() << std::endl;
-//		Sleep(sleepTime); // Count delta and sleep
 
+		loopTimer.Stop(); // stop timer
+		double sleepTime = (double)33.33 - 1000 * loopTimer.GetDelta();
+		std::cout << 1000 * loopTimer.GetDelta() << std::endl;
+		//WaitMS((int)sleepTime);
+
+		frameTimer.Stop();
+		std::cout << frameTimer.GetDelta() << std::endl;
 	}
 	// Deinitialize
 	texture.~Texture();

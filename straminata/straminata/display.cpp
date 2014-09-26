@@ -2,7 +2,7 @@
 #include <GL/glew.h>
 #include "display.h"
 
-Display::Display(int width, int height, const char* title, const bool windowType)
+Display::Display(int width, int height, std::string title, const bool windowType)
 {
 	// Initialization GLFW + OpenGL
 	if (!glfwInit()) exit(EXIT_FAILURE);
@@ -21,8 +21,8 @@ Display::Display(int width, int height, const char* title, const bool windowType
 	glfwWindowHint(GLFW_ALPHA_BITS, 8);
 	glfwWindowHint(GLFW_AUX_BUFFERS, 32);
 	// Creating window
-	if (windowType == 0) m_window = glfwCreateWindow(width, height, title, NULL, NULL); // Windowed
-	else m_window = glfwCreateWindow(m_monitorInfo->width, m_monitorInfo->height, title, glfwGetPrimaryMonitor(), nullptr); // Fullscreen
+	if (windowType == 0) m_window = glfwCreateWindow(width, height, title.c_str(), NULL, NULL); // Windowed
+	else m_window = glfwCreateWindow(m_monitorInfo->width, m_monitorInfo->height, title.c_str(), glfwGetPrimaryMonitor(), nullptr); // Fullscreen
 	// Preparing window
 	glfwMakeContextCurrent(m_window);
 
